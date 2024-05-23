@@ -38,20 +38,15 @@ def split_and_move_images(source_dir, destination_dir, names_list):
             shutil.move(str(source_file_path), str(destination_file_path))
 
 
-# Open the file
 with open("lfw-deepfunneled/people.txt", "r") as file:
-    # Initialize an empty list to store names
     names = []
-    # Iterate over each line in the file
     for line in file:
         # Split the line into name and number
         try:
             name, number = line.strip().split('\t')
         except Exception as e:
             continue
-        # Convert number to integer
         number = int(number)
-        # Check if the number is greater than 1
         if number > 80:
             # Append the name to the list
             names.append(name)
